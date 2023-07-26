@@ -22,29 +22,70 @@ print(f"{first_digit} + {second_digit} = {first_digit+second_digit}")
 print(first_digit, "+", second_digit, "=", first_digit+second_digit)
 
 
-# (is vs. ==) is checks if two variables refer to the same object, but == checks
-# if the objects pointed to have the same values.
-a = [1, 2, 3, 4]  # Point a at a new list, [1, 2, 3, 4]
-b = a             # Point b at what a is pointing to
-b is a            # => True, a and b refer to the same object
-b == a            # => True, a's and b's objects are equal
-b = [1, 2, 3, 4]  # Point b at a new list, [1, 2, 3, 4]
-b is a            # => False, a and b do not refer to the same object
-b == a            # => True, a's and b's objects are equal
+x = [1, 2, 3]
+y = [1, 2, 3]
+z = x
 
-li = []
-li.append(1)
-li.append(2)
-li.append(4)
-# Access a list like you would any array
-li[0]   # => 1
-# Look at the last element
-li[-1]  # => 3
-# You can look at ranges with slice syntax.
-# The start index is included, the end index is not
-# (It's a closed/open range for you mathy types.)
-li[1:3]   # Return list from index 1 to 3 => [2, 4]
-li[2:]    # Return list starting from index 2 => [4, 3]
-li[:3]    # Return list from beginning until index 3  => [1, 2, 4]
-li[::2]   # Return list selecting every second entry => [1, 4]
-li[::-1]  # Return list in reverse order => [3, 4, 2, 1]
+print(x == y)  # Saída: True
+print(x is y)  # Saída: False
+print(z is x)  # Saída: True
+print(z == x)  # Saída: True
+
+
+# Criando uma lista inicial
+frutas = ["maçã", "banana", "laranja", "uva"]
+
+# Imprimindo a lista completa
+print("Lista original:", frutas)
+
+# Acessando um elemento da lista pelo índice
+print("Primeira fruta:", frutas[0])  # Saída: maçã
+
+# Modificando um elemento da lista
+frutas[1] = "abacaxi"
+print("Lista após modificar:", frutas)
+
+# Adicionando elementos à lista
+frutas.append("morango")
+print("Lista após adicionar morango:", frutas)
+
+# Removendo um elemento da lista
+frutas.remove("laranja")
+print("Lista após remover laranja:", frutas)
+
+# Inserindo um elemento em uma posição específica
+frutas.insert(1, "pêra")
+print("Lista após inserir pêra na posição 1:", frutas)
+
+# Contando o número de ocorrências de um elemento na lista
+ocorrencias_uva = frutas.count("uva")
+print("Ocorrências de uva na lista:", ocorrencias_uva)
+
+# Ordenando a lista em ordem alfabética
+frutas.sort()
+print("Lista ordenada:", frutas)
+
+# Revertendo a ordem dos elementos na lista
+frutas.reverse()
+print("Lista revertida:", frutas)
+
+# Fatiando (slicing) a lista para obter uma parte dela
+parte_da_lista = frutas[1:4]
+print("Parte da lista:", parte_da_lista)
+
+# Verificando se um elemento está presente na lista
+if "morango" in frutas:
+    print("Sim, morango está na lista.")
+else:
+    print("Não, morango não está na lista.")
+
+
+# Removendo o elemento no índice 2 (laranja) e retornando o elemento removido
+# pop() sem índice remove e retorna o último elemento
+elemento_removido = frutas.pop(2)
+print("Elemento removido:", elemento_removido)
+print("Lista após remover o elemento:", frutas)
+
+# Removendo o elemento no índice 2 (laranja) usando a palavra-chave del
+del frutas[2]
+print("Lista após remover o elemento:", frutas)
