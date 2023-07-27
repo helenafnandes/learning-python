@@ -1,4 +1,15 @@
-print("Hello World")
+idade = int(input("Digite sua idade: "))
+
+if idade < 0:
+    print("Idade inválida.")
+elif idade < 18:
+    print("Você é menor de idade.")
+else:
+    print("Você é maior de idade.")
+
+if True or not True:           # and, or, not
+    print("operadores")
+
 
 idade = 30
 cidade = "São Paulo"
