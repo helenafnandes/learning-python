@@ -1,3 +1,32 @@
+# Exemplo de loop "while"
+contador = 0
+
+while contador < 5:
+    print("Contagem:", contador)
+    contador += 1
+
+# Saída: 0 a 4
+
+
+# Exemplo de loop "for"
+frutas = ["maçã", "banana", "laranja"]
+
+for fruta in frutas:
+    print("Gosto de", fruta)
+
+# Saída:
+# Gosto de maçã
+# Gosto de banana
+# Gosto de laranja
+
+
+# Exemplo de loop "for" usando a função "range()"
+for numero in range(1, 6):  # O intervalo vai de 1 a 5 (6 não é incluído)
+    print(numero)
+
+# Saída: 1 a 5
+
+
 idade = int(input("Digite sua idade: "))
 
 if idade < 0:
