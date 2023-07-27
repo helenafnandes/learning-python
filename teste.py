@@ -1,5 +1,98 @@
 # #############################################################################
 
+# ESCOPO DE VARIÁVEIS #########################################################
+
+# Variável global
+global_var = 10
+print(global_var)  # Saída: 10
+
+
+def funcao_exemplo():
+    # Variável local
+    local_var = 5
+    print(local_var)   # Saída: 5
+    # A variável global_var é sombreada pela variável local_var dentro da função
+    global_var = 5
+    print(global_var)  # Saída: 5
+
+
+funcao_exemplo()
+print(global_var)  # Saída: 10
+
+
+def funcao_exemplo2():
+    # Modificar uma variável global dentro de uma função,
+    global global_var
+    global_var = 7
+    print(global_var)  # Saída: 7
+
+
+funcao_exemplo2()
+
+print(global_var)  # Saída: 7
+
+# Tentando acessar a variável local fora da função (gera erro)
+# print(local_var)  # NameError: name 'local_var' is not defined
+
+
+# ENTRADA E SAÍDA #############################################################
+
+idade = 30
+cidade = "São Paulo"
+# Imprimindo múltiplos valores com a vírgula , -> espaços automáticos
+print("Idade:", idade, "anos. Cidade: " + cidade)
+# Saída: Idade: 30 anos. Cidade: São Paulo
+
+print("Tip Calculator")
+print("Total bill: R$", end="")
+total_bill = int(input())
+print("n. of people to split the bill: ")
+people = int(input())
+
+each = total_bill / people
+print(f"Each person should pay: R${each}")
+
+two_digit_number = input("enter a 2 digit number: ")
+first_digit = int(two_digit_number[0])  # int
+second_digit = int(two_digit_number[1])    # str
+print(f"{first_digit} + {second_digit} = {first_digit+second_digit}")
+print(first_digit, "+", second_digit, "=", first_digit+second_digit)
+
+
+# IGUALDADE ###################################################################
+
+x = [1, 2, 3]
+y = [1, 2, 3]
+z = x
+
+print(x == y)  # Saída: True
+print(x is y)  # Saída: False
+print(z is x)  # Saída: True
+print(z == x)  # Saída: True
+
+
+# CONDICIONAIS ################################################################
+
+# Exemplo de operador ternário
+idade = 20
+maior_de_idade = True if idade >= 18 else False
+
+print(maior_de_idade)  # Saída: True
+
+
+idade = int(input("Digite sua idade: "))
+
+if idade < 0:
+    print("Idade inválida.")
+elif idade < 18:
+    print("Você é menor de idade.")
+else:
+    print("Você é maior de idade.")
+
+if True or not True:           # and, or, not
+    print("operadores")
+
+
 # LOOPS #######################################################################
 
 # Exemplo de loop "for" com enumerate()
@@ -72,62 +165,6 @@ for numero in range(1, 6):  # O intervalo vai de 1 a 5 (6 não é incluído)
 
 # Saída: 1 a 5
 
-# CONDICIONAIS ################################################################
-
-# Exemplo de operador ternário
-idade = 20
-maior_de_idade = True if idade >= 18 else False
-
-print(maior_de_idade)  # Saída: True
-
-
-idade = int(input("Digite sua idade: "))
-
-if idade < 0:
-    print("Idade inválida.")
-elif idade < 18:
-    print("Você é menor de idade.")
-else:
-    print("Você é maior de idade.")
-
-if True or not True:           # and, or, not
-    print("operadores")
-
-
-# ENTRADA E SAÍDA #############################################################
-
-idade = 30
-cidade = "São Paulo"
-# Imprimindo múltiplos valores com a vírgula , -> espaços automáticos
-print("Idade:", idade, "anos. Cidade: " + cidade)
-# Saída: Idade: 30 anos. Cidade: São Paulo
-
-print("Tip Calculator")
-print("Total bill: R$", end="")
-total_bill = int(input())
-print("n. of people to split the bill: ")
-people = int(input())
-
-each = total_bill / people
-print(f"Each person should pay: R${each}")
-
-two_digit_number = input("enter a 2 digit number: ")
-first_digit = int(two_digit_number[0])  # int
-second_digit = int(two_digit_number[1])    # str
-print(f"{first_digit} + {second_digit} = {first_digit+second_digit}")
-print(first_digit, "+", second_digit, "=", first_digit+second_digit)
-
-
-# IGUALDADE ###################################################################
-
-x = [1, 2, 3]
-y = [1, 2, 3]
-z = x
-
-print(x == y)  # Saída: True
-print(x is y)  # Saída: False
-print(z is x)  # Saída: True
-print(z == x)  # Saída: True
 
 # LISTAS ######################################################################
 
