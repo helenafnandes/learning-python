@@ -1,3 +1,49 @@
+# #############################################################################
+
+# LOOPS #######################################################################
+
+# Exemplo de loop "for" com enumerate()
+frutas = ["maçã", "banana", "laranja"]
+
+for indice, fruta in enumerate(frutas):
+    print(f"Índice {indice}: {fruta}")
+
+# Saída:
+# Índice 0: maçã
+# Índice 1: banana
+# Índice 2: laranja
+
+
+nomes = ["Alice", "Bob", "Carlos"]      # 4 elementos
+idades = [25, 30, 22, 27]               # 3 elementos
+
+for nome, idade in zip(nomes, idades):
+    print(f"{nome} tem {idade} anos.")
+# Saída:
+# Alice tem 25 anos.
+# Bob tem 30 anos.
+# Carlos tem 22 anos.
+
+
+# Exemplo de loop "while" com "else"
+contador = 0
+
+while contador < 5:
+    print("Contagem:", contador)
+    contador += 1
+else:
+    # quando o while não é interrompido por 'break'
+    print("Loop concluído normalmente.")
+
+# Saída:
+# Contagem: 0
+# Contagem: 1
+# Contagem: 2
+# Contagem: 3
+# Contagem: 4
+# Loop concluído normalmente.
+
+
 # Exemplo de loop "while"
 contador = 0
 
@@ -26,6 +72,14 @@ for numero in range(1, 6):  # O intervalo vai de 1 a 5 (6 não é incluído)
 
 # Saída: 1 a 5
 
+# CONDICIONAIS ################################################################
+
+# Exemplo de operador ternário
+idade = 20
+maior_de_idade = True if idade >= 18 else False
+
+print(maior_de_idade)  # Saída: True
+
 
 idade = int(input("Digite sua idade: "))
 
@@ -39,6 +93,8 @@ else:
 if True or not True:           # and, or, not
     print("operadores")
 
+
+# ENTRADA E SAÍDA #############################################################
 
 idade = 30
 cidade = "São Paulo"
@@ -62,6 +118,8 @@ print(f"{first_digit} + {second_digit} = {first_digit+second_digit}")
 print(first_digit, "+", second_digit, "=", first_digit+second_digit)
 
 
+# IGUALDADE ###################################################################
+
 x = [1, 2, 3]
 y = [1, 2, 3]
 z = x
@@ -71,6 +129,7 @@ print(x is y)  # Saída: False
 print(z is x)  # Saída: True
 print(z == x)  # Saída: True
 
+# LISTAS ######################################################################
 
 # Criando uma lista inicial
 frutas = ["maçã", "banana", "laranja", "uva"]
