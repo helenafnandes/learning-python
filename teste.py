@@ -225,3 +225,37 @@ print("Lista após remover o elemento:", frutas)
 # Removendo o elemento no índice 2 (laranja) usando a palavra-chave del
 del frutas[2]
 print("Lista após remover o elemento:", frutas)
+
+
+# CLASSES #####################################################################
+
+class Pessoa:
+    # Atributo da classe
+    olhos = 2
+
+    def saudacao(self):
+        return "Olá, eu sou uma pessoa."
+
+    def metodo(self):
+        return "herdar metodo"
+
+
+class Pessoa2(Pessoa):
+
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def saudacao(self):
+        return f"Olá, meu nome é {self.nome} e eu tenho {self.idade} anos."
+
+
+pessoa1 = Pessoa()
+print(pessoa1.saudacao())   # Saída: Olá!
+print(pessoa1.metodo())     # Saída: herdar metodo
+print(pessoa1.olhos)        # Saída: 2
+
+pessoa2 = Pessoa2("Alice", 30)
+print(pessoa2.saudacao())   # Saída: Olá, meu nome é Alice e eu tenho 30 anos.
+print(pessoa2.metodo())     # Saída: herdar metodo
+print(pessoa2.olhos)        # Saída: 2
