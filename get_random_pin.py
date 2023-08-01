@@ -24,7 +24,7 @@ def selecionar_pin_aleatorio(html):
 
     # Use find() para encontrar o elemento <div> com data-test-id="pinWrapper"
     # div_pin_wrapper = soup.find('div', {'data-test-id': 'pinWrapper'})
-    div_pin_wrapper = soup.find('div', {'class': 'Yl- MIw Hb7'})
+    div_pin_wrapper = soup.find_all('div', {'data-test-id': 'pinWrapper'})
 
     # Percorra os links encontrados para obter o atributo href de cada um
     # for link in links_pins:
@@ -39,14 +39,16 @@ def selecionar_pin_aleatorio(html):
     # else:
     #     return None
 
-    if div_pin_wrapper:
-        # Em seguida, use find_all() para encontrar todos os elementos <a> dentro do elemento <div> encontrado
-        links_pins = div_pin_wrapper.find_all('a')
-        for link in links_pins:
-            link_do_pin = link['href']
-            print(link_do_pin)
-    else:
-        print("Elemento com data-test-id='pinWrapper' não encontrado.")
+    for div in div_pin_wrapper:
+        if div:
+            print("alguma coisa")
+            # Em seguida, use find_all() para encontrar todos os elementos <a> dentro do elemento <div> encontrado
+            links_pins = div_pin_wrapper.find_all('a')
+            for link in links_pins:
+                link_do_pin = link['href']
+                print(link_do_pin)
+        else:
+            print("Elemento com data-test-id='pinWrapper' não encontrado.")
 
     # if links_pins:
     #     link_aleatorio = random.choice(links_pins)
