@@ -1,5 +1,8 @@
 # #############################################################################
 
+# pip install ->  python -m pip install
+# ou adicionar o pip às var de ambiente
+
 # ESCOPO DE VARIÁVEIS #########################################################
 
 # Variável global
