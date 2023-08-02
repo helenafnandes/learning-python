@@ -19,43 +19,22 @@ def obter_pagina_pinterest(url):
 def selecionar_pin_aleatorio(html):
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Use find_all() para encontrar todos os elementos <a> dentro da div com data-test-id pinWrapper
-    # links_pins = soup.select('[class="Yl- MIw Hb7"] a')
+    # Encontre todos os divs que possuem o atributo 'data-grid-item="true"'
+    elements_with_data_grid_item = soup.find_all(
+        attrs={"data-grid-item": "true"})
 
-    # Use find() para encontrar o elemento <div> com data-test-id="pinWrapper"
-    # div_pin_wrapper = soup.find('div', {'data-test-id': 'pinWrapper'})
-    div_pin_wrapper = soup.find_all('div', {'data-test-id': 'pinWrapper'})
+    # Filtrar apenas os divs que também possuem a classe 'Yl- MIw Hb7'
+    pins_divs = [
+        element for element in elements_with_data_grid_item if "Yl- MIw Hb7" in element.get("class", [])]
 
-    # Percorra os links encontrados para obter o atributo href de cada um
-    # for link in links_pins:
-    #     link_do_pin = link['href']
-    #     print(link_do_pin)
-
-    # pins = soup.find_all('div', {'class': 'Yl- MIw Hb7'})
-    # if pins:
-    #     pin_aleatorio = random.choice(pins)
-    #     link_pin = pin_aleatorio.find('a')['href']
-    #     return link_pin
-    # else:
-    #     return None
-
-    for div in div_pin_wrapper:
-        if div:
-            print("alguma coisa")
-            # Em seguida, use find_all() para encontrar todos os elementos <a> dentro do elemento <div> encontrado
-            links_pins = div_pin_wrapper.find_all('a')
-            for link in links_pins:
-                link_do_pin = link['href']
-                print(link_do_pin)
-        else:
-            print("Elemento com data-test-id='pinWrapper' não encontrado.")
-
-    # if links_pins:
-    #     link_aleatorio = random.choice(links_pins)
-    #     return link_aleatorio
-    # else:
-    #     print("não achou.")
-    #     return None
+    # Verifique se foram encontrados divs antes de prosseguir
+    if pins_divs:
+        # Faça algo com cada div do pin encontrado
+        for div in pins_divs:
+            # Por exemplo, você pode imprimir o conteúdo do div
+            print(div.text)
+    else:
+        print("Nenhum div do pin encontrado.")
 
 
 # Configuração do Chrome WebDriver
@@ -80,7 +59,7 @@ scroll_amount = 500  # Valor em pixels para rolar
 for _ in range(5):  # Realiza o scroll 5 vezes
     driver.execute_script(f"window.scrollBy(0, {scroll_amount});")
     # Aguarda um curto período para os pins carregarem após o scroll
-    driver.implicitly_wait(2)
+    driver.implicitly_wait(10)
 
 
 # Obtém o HTML após o carregamento completo da página
@@ -88,8 +67,8 @@ html = driver.page_source
 if html:
     print("aaaaaaaa")
 
-# Fecha o navegador
-driver.quit()
+
+# continuar = input("continue: ")
 
 
 url_pasta_pinterest = "https://www.pinterest.com/phos13/stuff/"
@@ -104,3 +83,7 @@ if pagina_pasta:
         print("Nenhum pin encontrado na página.")
 else:
     print("Erro ao obter página do Pinterest.")
+
+
+# Fecha o navegador
+driver.quit()
